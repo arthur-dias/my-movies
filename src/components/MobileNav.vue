@@ -33,6 +33,8 @@ const show = ref(false)
 
 <style scoped>
 .mobileNav {
+  position: relative;
+  z-index: 1;
   padding: 1rem 0;
 }
 .buttons {
@@ -86,7 +88,7 @@ a {
   border-bottom: 1px solid #2c3641;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 680px) {
   .mobileNav {
     display: none;
   }
