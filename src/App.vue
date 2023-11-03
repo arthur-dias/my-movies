@@ -1,8 +1,8 @@
 <template>
   <header>
     <MainNav />
-    <RouterView />
   </header>
+  <RouterView />
 </template>
 
 <script setup lang="ts">

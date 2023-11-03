@@ -1,14 +1,20 @@
 <template>
-  <h1 style="color: antiquewhite">Home Page</h1>
-  <div>
-    <p style="color: antiquewhite">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eos
-      molestiae odit a vero nihil ea, non, est corrupti dolores ad nobis soluta!
-      Itaque, nulla optio neque placeat pariatur consequatur.
-    </p>
-  </div>
+  <KeepAlive>
+    <Hero :image-url="movieStore.movies[randomBackdrop]?.backdrop_path" />
+  </KeepAlive>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useMovieStore } from '@/stores/movieStore'
+import getRandomNumber from '@/utils/utils'
+import Hero from '@/components/Hero.vue'
+
+const movieStore = useMovieStore()
+const query = 'trending/movie/week?language=pt-BR'
+
+movieStore.getMoviesList(query)
+
+const randomBackdrop = getRandomNumber(20)
+</script>
 
 <style scoped></style>
