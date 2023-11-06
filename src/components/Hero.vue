@@ -63,7 +63,7 @@ img {
 
 button {
   margin-top: 2rem;
-  padding: 0.7rem;
+  padding: 0.8rem 2rem;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid #ff8906;
