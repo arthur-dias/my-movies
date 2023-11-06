@@ -20,3 +20,9 @@ export interface Movie {
   vote_average: number
   vote_count: number
 }
+
+export interface Service {
+  id: number
+  text: string
+  inProduction: boolean
+}
