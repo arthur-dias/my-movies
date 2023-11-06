@@ -21,7 +21,7 @@ const url = 'https://image.tmdb.org/t/p/w342/'
 }
 
 .card:hover {
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 @media (max-width: 680px) {
