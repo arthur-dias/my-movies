@@ -13,28 +13,45 @@ const options = {
 }
 
 interface State {
-  movies: Movie[]
+  trendingMovies: Movie[]
+  topRatedMovies: Movie[]
   loading: boolean
 }
 
 export const useMovieStore = defineStore('movie', {
   state: () =>
     ({
-      movies: [],
+      trendingMovies: [],
+      topRatedMovies: [],
       loading: false,
     } as State),
   getters: {},
   actions: {
-    async getMoviesList(query: string) {
+    async getTrendingMoviesList(query: string) {
       this.loading = true
 
       try {
         const data = await getMovies(query, options)
-        this.movies = data.results
+        this.trendingMovies = data.results
       } catch (error) {
         console.log('Error: ', error)
       } finally {
         this.loading = false
+        console.log('Trending movies: ', this.trendingMovies)
+      }
+    },
+
+    async getTopRatedMoviesList(query: string) {
+      this.loading = true
+
+      try {
+        const data = await getMovies(query, options)
+        this.topRatedMovies = data.results
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        this.loading = false
+        console.log('Top rated movies', this.topRatedMovies)
       }
     },
   },
