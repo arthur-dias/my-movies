@@ -20,7 +20,7 @@ defineProps<{
 
 <style scoped>
 .services {
-  padding-top: 8rem;
+  padding: 8rem 0;
 }
 
 h1 {
@@ -53,6 +53,7 @@ h1 {
   min-height: 120px;
   padding: 1rem;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .service:hover {
@@ -73,7 +74,7 @@ h1 {
 
 @media (max-width: 680px) {
   .services {
-    padding-top: 2rem;
+    padding: 2rem 0 0;
   }
 
   h1 {
