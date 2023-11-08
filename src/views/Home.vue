@@ -2,14 +2,14 @@
   <Hero :image-url="movieStore.trendingMovies[randomBackdrop]?.backdrop_path" />
   <Cards
     :movies="movieStore.trendingMovies"
-    title="Filmes populares no momento"
+    title="Filmes populares essa semana"
     :max-cards="4"
   />
   <Services :services="services" />
   <Cards
     :movies="movieStore.topRatedMovies"
     title="Filmes mais bem avaliados"
-    :max-cards="10"
+    :max-cards="4"
   />
 </template>
 
