@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <div class="imageWrapper">
-      <img :src="`${url}${imageUrl}`" alt="Banner" />
+      <img v-if="imageUrl" :src="`${url}${imageUrl}`" alt="Banner" />
     </div>
     <div class="description">
       <p>Avalie os filmes que você viu.</p>
