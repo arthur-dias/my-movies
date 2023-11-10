@@ -74,7 +74,7 @@ h1 {
 
 @media (max-width: 680px) {
   .services {
-    padding: 2rem 0 0;
+    padding: 0;
   }
 
   h1 {

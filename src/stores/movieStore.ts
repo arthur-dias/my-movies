@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import type { Movie } from '@/types/types'
-import getMovies from '@/api/getMovies'
+import type { Movie, Person } from '@/types/types'
+import getApiData from '@/api/getApiData'
 import { shuffle } from '@/utils/utils'
 
 const token: string = import.meta.env.TMDB_TOKEN
@@ -16,6 +16,7 @@ const options = {
 interface State {
   trendingMovies: Movie[]
   topRatedMovies: Movie[]
+  popularPeople: Person[]
   loading: boolean
 }
 
@@ -24,6 +25,7 @@ export const useMovieStore = defineStore('movie', {
     ({
       trendingMovies: [],
       topRatedMovies: [],
+      popularPeople: [],
       loading: false,
     } as State),
   getters: {
@@ -34,13 +36,17 @@ export const useMovieStore = defineStore('movie', {
     filteredTopRatedMovies(): Movie[] {
       return shuffle(this.topRatedMovies)
     },
+
+    filteredPopularPeople(): Person[] {
+      return shuffle(this.popularPeople)
+    },
   },
   actions: {
     async getTrendingMoviesList(query: string) {
       this.loading = true
 
       try {
-        const data = await getMovies(query, options)
+        const data = await getApiData(query, options)
         this.trendingMovies = data.results
       } catch (error) {
         console.log('Error: ', error)
@@ -53,12 +59,26 @@ export const useMovieStore = defineStore('movie', {
       this.loading = true
 
       try {
-        const data = await getMovies(query, options)
+        const data = await getApiData(query, options)
         this.topRatedMovies = data.results
       } catch (error) {
         console.log('Error: ', error)
       } finally {
         this.loading = false
+      }
+    },
+
+    async getTrendingPersonsList(query: string) {
+      this.loading = true
+
+      try {
+        const data = await getApiData(query, options)
+        this.popularPeople = data.results
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        this.loading = false
+        console.log(this.popularPeople)
       }
     },
   },

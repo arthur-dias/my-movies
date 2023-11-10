@@ -6,11 +6,11 @@ interface apiOptions {
   }
 }
 
-async function getMovies(url: string, options: apiOptions) {
+async function getApiData(url: string, options: apiOptions) {
   const res = await fetch(`https://api.themoviedb.org/3/${url}`, options)
   const data = await res.json()
 
   return data
 }
 
-export default getMovies
+export default getApiData

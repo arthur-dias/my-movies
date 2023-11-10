@@ -9,21 +9,32 @@
     :movies="movieStore.filteredTopRatedMovies"
     title="Filmes mais bem avaliados"
   />
+  <Persons
+    :persons="movieStore.filteredPopularPeople"
+    title="Atores e atrizes em alta no momento"
+    :max-persons="16"
+  />
 </template>
 
 <script setup lang="ts">
 import { useMovieStore } from '@/stores/movieStore'
 import { getRandomNumber } from '@/utils/utils'
 import { services } from '@/data/services'
-import { trendingQuery, topRatedQuery } from '@/api/queries'
+import {
+  trendingMoviesQuery,
+  topRatedQuery,
+  popularPeopleQuery,
+} from '@/api/queries'
 import Hero from '@/components/Hero.vue'
 import Cards from '@/components/Cards.vue'
 import Services from '@/components/Services.vue'
+import Persons from '@/components/Persons.vue'
 
 const movieStore = useMovieStore()
 
-movieStore.getTrendingMoviesList(trendingQuery)
+movieStore.getTrendingMoviesList(trendingMoviesQuery)
 movieStore.getTopRatedMoviesList(topRatedQuery)
+movieStore.getTrendingPersonsList(popularPeopleQuery)
 
 const randomBackdrop = getRandomNumber(20)
 </script>
