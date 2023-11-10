@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
     <div class="cardsWrapper">
       <Card
-        v-for="movie in movies?.slice(0, maxCards)"
+        v-for="movie in movies?.slice(0, maxCards ? maxCards : 4)"
         :key="movie.id"
         :image-url="movie.poster_path"
         :name="movie.title"

@@ -1,15 +1,13 @@
 <template>
   <Hero :image-url="movieStore.trendingMovies[randomBackdrop]?.backdrop_path" />
   <Cards
-    :movies="movieStore.trendingMovies"
+    :movies="movieStore.filteredTrendingMovies"
     title="Filmes populares essa semana"
-    :max-cards="4"
   />
   <Services :services="services" />
   <Cards
-    :movies="movieStore.topRatedMovies"
+    :movies="movieStore.filteredTopRatedMovies"
     title="Filmes mais bem avaliados"
-    :max-cards="4"
   />
 </template>
 

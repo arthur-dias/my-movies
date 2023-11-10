@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { Movie } from '@/types/types'
 import getMovies from '@/api/getMovies'
+import { shuffle } from '@/utils/utils'
 
 const token: string = import.meta.env.TMDB_TOKEN
 
@@ -25,7 +26,15 @@ export const useMovieStore = defineStore('movie', {
       topRatedMovies: [],
       loading: false,
     } as State),
-  getters: {},
+  getters: {
+    filteredTrendingMovies(): Movie[] {
+      return shuffle(this.trendingMovies)
+    },
+
+    filteredTopRatedMovies(): Movie[] {
+      return shuffle(this.topRatedMovies)
+    },
+  },
   actions: {
     async getTrendingMoviesList(query: string) {
       this.loading = true
@@ -37,7 +46,6 @@ export const useMovieStore = defineStore('movie', {
         console.log('Error: ', error)
       } finally {
         this.loading = false
-        console.log('Trending movies: ', this.trendingMovies)
       }
     },
 
@@ -51,7 +59,6 @@ export const useMovieStore = defineStore('movie', {
         console.log('Error: ', error)
       } finally {
         this.loading = false
-        console.log('Top rated movies', this.topRatedMovies)
       }
     },
   },
