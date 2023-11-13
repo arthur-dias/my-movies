@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1 style="color: aliceblue">
-      {{ movieStore.movieDetails.overview }}
-    </h1>
+  <div class="movie">
+    <MovieDescription :movieInfos="movieStore.movieDetails" />
   </div>
 </template>
 
@@ -10,6 +8,7 @@
 import { movieDetailsQuery } from '@/api/queries'
 import { useMovieStore } from '@/stores/movieStore'
 import { useRoute } from 'vue-router'
+import MovieDescription from '@/components/MovieDescription.vue'
 
 const movieStore = useMovieStore()
 const route = useRoute()
@@ -17,7 +16,7 @@ const route = useRoute()
 const id = route.params.id
 
 movieStore.getMovieDetails(movieDetailsQuery(id as string))
-console.log(movieStore.movieDetails)
+console.log('MOVIE PAGE', movieStore.movieDetails)
 </script>
 
 <style scoped></style>

@@ -17,7 +17,7 @@ interface State {
   trendingMovies: Movie[]
   topRatedMovies: Movie[]
   popularPeople: Person[]
-  movieDetails: MovieDetails[]
+  movieDetails: MovieDetails | undefined
   loading: boolean
 }
 
@@ -27,7 +27,7 @@ export const useMovieStore = defineStore('movie', {
       trendingMovies: [],
       topRatedMovies: [],
       popularPeople: [],
-      movieDetails: [],
+      movieDetails: undefined,
       loading: false,
     } as State),
   getters: {
