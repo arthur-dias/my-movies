@@ -7,6 +7,7 @@
         :key="movie.id"
         :image-url="movie.poster_path"
         :name="movie.title"
+        :id="movie.id"
       />
     </div>
   </div>

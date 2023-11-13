@@ -1,13 +1,18 @@
 <template>
-  <div class="card">
-    <img :src="`${url}${imageUrl}`" alt="{{ name }}" />
-  </div>
+  <RouterLink :to="`/filmes/${id}`">
+    <div class="card">
+      <img :src="`${url}${imageUrl}`" alt="{{ name }}" />
+    </div>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
 defineProps<{
   imageUrl: string
   name: string
+  id: number
 }>()
 
 const url = 'https://image.tmdb.org/t/p/w342/'
