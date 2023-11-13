@@ -1,6 +1,6 @@
 <template>
   <div class="person">
-    <img :src="`${url}${imageUrl}`" alt="{{ name }}" />
+    <img :src="`${url}${imageUrl}`" :alt="name" />
   </div>
 </template>
 

@@ -1,5 +1,3 @@
-import type { Movie } from '@/types/types'
-
 export function getRandomNumber(maxNumber: number): number {
   const randomNumber = Math.floor(Math.random() * maxNumber)
   return randomNumber
