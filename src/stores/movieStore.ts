@@ -3,7 +3,7 @@ import type { Movie, MovieDetails, Person } from '@/types/types'
 import getApiData from '@/api/getApiData'
 import { shuffle } from '@/utils/utils'
 
-const token: string = import.meta.env.TMDB_TOKEN
+const token = import.meta.env.VITE_TMDB_TOKEN
 
 const options = {
   method: 'GET',
