@@ -52,7 +52,7 @@ const url = 'https://image.tmdb.org/t/p/w200/'
 
 <style scoped>
 .movieDetails {
-  max-width: 85%;
+  max-width: 65%;
   margin: 0 auto;
 }
 
@@ -102,6 +102,7 @@ const url = 'https://image.tmdb.org/t/p/w200/'
 .genres {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -136,6 +137,10 @@ const url = 'https://image.tmdb.org/t/p/w200/'
 }
 
 @media (max-width: 680px) {
+  .movieDetails {
+    max-width: 85%;
+  }
+
   .titleDetails > h1 {
     font-size: 1.8rem;
   }

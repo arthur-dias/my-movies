@@ -7,7 +7,7 @@
         target="_blank"
         rel="noreferrer"
       >
-        <img src="../assets/icons/imdb-icon.svg" alt="IMDB" class="imdbIcon" />
+        <img src="@/assets/icons/imdb-icon.svg" alt="IMDB" class="imdbIcon" />
       </a>
     </h1>
     <div class="personWrapper">
@@ -35,7 +35,7 @@ defineProps<{
 
 <style scoped>
 .cast {
-  max-width: 85%;
+  max-width: 65%;
   margin: 2rem auto 0;
 }
 .cast > h1 {
@@ -70,6 +70,9 @@ defineProps<{
 }
 
 @media (max-width: 680px) {
+  .cast {
+    max-width: 85%;
+  }
   .cast > h1 {
     font-size: 1.8rem;
   }

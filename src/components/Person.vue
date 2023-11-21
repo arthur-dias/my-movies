@@ -1,6 +1,7 @@
 <template>
   <div class="person" :class="{ hasName: showName }">
-    <img :src="`${url}${imageUrl}`" :alt="name" />
+    <img v-if="imageUrl" :src="`${url}${imageUrl}`" :alt="name" />
+    <img v-else src="@/assets/images/fallback_profile.png" :alt="name" />
     <div v-if="showName" class="personInfo">
       <p v-if="character" class="character">{{ character }}</p>
       <p>{{ name }}</p>
