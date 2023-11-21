@@ -1,40 +1,45 @@
-# my-movies
+# <p align="center">Movie reviews app {WIP}</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+### <p align="center">Um serviço de reviews de filmes utilizando a [TMDB Api](https://www.themoviedb.org/)</p>
 
-## Recommended IDE Setup
+![img1](https://github.com/arthur-dias/my-movies/assets/29763731/878b7e44-cdac-452f-a76f-77f8777b4cc4)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## Key features
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- [ ] Criação de profile individual
+- [ ] Criação e compartilhamento de reviews
+- [ ] Criação de um diário com filmes assistidos
+- [ ] Adicionar likes em filmes, listas e reviews
+- [ ] Avaliação de filmes com até 5 estrelas
+- [ ] Criação de listas diversas e watchlists
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Rodando o projeto
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```
+$ git clone https://github.com/arthur-dias/my-movies
 
-## Customize configuration
+$ cd my-movies
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+$ npm install 
 
-## Project Setup
+Criar um arquivo .env na raiz do projeto e adicionar sua Api key e token da seguinte maneira:
 
-```sh
-npm install
+TMDB_API_KEY=api_key
+VITE_TMDB_TOKEN=vite_tmdb_token
+
+$ npm run dev
+
+Acessar http://localhost:5173/
 ```
 
-### Compile and Hot-Reload for Development
+## Stack utilizada {WIP}
 
-```sh
-npm run dev
-```
+- [Vue.js](https://vuejs.org/)
+- [Pinia](https://pinia.vuejs.org/)
+- [TMDB Api](https://developer.themoviedb.org/docs)
+- [Supabase](https://supabase.com/)
+- [Cloudinary](https://cloudinary.com/)
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+## License
+MIT
