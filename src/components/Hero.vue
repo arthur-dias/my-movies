@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <div class="imageWrapper">
-      <img v-if="imageUrl" :src="`${url}${imageUrl}`" alt="Banner" />
+      <img src="@/assets/images/hero.jpg" alt="Banner" />
     </div>
     <div class="description">
       <p>Avalie os filmes que você viu.</p>
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  imageUrl: string | undefined
+  imageUrl?: string | undefined
 }>()
 
 const url = 'https://image.tmdb.org/t/p/w1280/'
