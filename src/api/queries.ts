@@ -5,3 +5,6 @@ export const topRatedQuery: string = 'movie/top_rated?language=pt-BR&page=1'
 export const popularPeopleQuery: string = 'person/popular?language=pt-BR&page=1'
 
 export const movieDetailsQuery = (id: string) => `movie/${id}?language=pt-BR`
+
+export const movieCreditsQuery = (id: string) =>
+  `movie/${id}/credits?language=pt-BR`

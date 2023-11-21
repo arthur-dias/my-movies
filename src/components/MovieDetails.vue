@@ -1,17 +1,17 @@
 <template>
   <div class="movieDetails">
     <div class="titleDetails">
-      <h1>{{ movieInfos?.title }}</h1>
-      <p>Título original: {{ movieInfos?.original_title }}</p>
+      <h1>{{ movieDetails?.title }}</h1>
+      <p>Título original: {{ movieDetails?.original_title }}</p>
       <div class="movieFatcs">
         <p>
-          {{ movieInfos?.release_date.slice(0, 4) }}
+          {{ movieDetails?.release_date.slice(0, 4) }}
         </p>
-        <p>{{ movieInfos?.runtime }} min</p>
+        <p>{{ movieDetails?.runtime }} min</p>
       </div>
       <div class="genres">
         <Tag
-          v-for="genre in movieInfos?.genres"
+          v-for="genre in movieDetails?.genres"
           :tag="genre.name"
           :key="genre.id"
         />
@@ -19,40 +19,30 @@
     </div>
     <div class="movieDescription">
       <img
-        v-if="movieInfos?.poster_path"
-        :src="`${url}${movieInfos?.poster_path}`"
-        :alt="movieInfos?.title"
+        v-if="movieDetails?.poster_path"
+        :src="`${url}${movieDetails?.poster_path}`"
+        :alt="movieDetails?.title"
       />
       <div class="descriptionText">
-        <h2>
+        <h2 v-if="movieDetails?.tagline">
           <em>
-            {{ movieInfos?.tagline }}
+            {{ movieDetails?.tagline }}
           </em>
         </h2>
         <p>
-          {{ movieInfos?.overview }}
+          {{ movieDetails?.overview }}
         </p>
       </div>
-    </div>
-    <div class="otherInfo">
-      <h2>Outras informações</h2>
-      <a
-        :href="`https://www.imdb.com/title/${movieInfos?.imdb_id}`"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img src="../assets/icons/imdb-icon.svg" alt="IMDB" class="imdbIcon" />
-      </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { MovieDetails } from '@/types/types'
+import type { MovieDetails as MovieDetailsType } from '@/types/types'
 import Tag from './Tag.vue'
 
 defineProps<{
-  movieInfos: MovieDetails | undefined
+  movieDetails: MovieDetailsType | undefined
 }>()
 
 const url = 'https://image.tmdb.org/t/p/w200/'
@@ -60,7 +50,8 @@ const url = 'https://image.tmdb.org/t/p/w200/'
 
 <style scoped>
 .movieDetails {
-  padding: 0 20rem;
+  max-width: 85%;
+  margin: 0 auto;
 }
 
 .titleDetails {
@@ -114,6 +105,7 @@ const url = 'https://image.tmdb.org/t/p/w200/'
 
 .movieDescription {
   padding-top: 2rem;
+  max-width: 85%;
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -141,17 +133,13 @@ const url = 'https://image.tmdb.org/t/p/w200/'
   color: #fffffe;
 }
 
-.otherInfo {
-  color: #fffffe;
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: #fffffe;
-}
-
-.otherInfo > a {
-  width: 50px;
-  cursor: pointer;
+@media (max-width: 680px) {
+  .titleDetails > h1 {
+    font-size: 1.8rem;
+  }
+  .movieDescription {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

@@ -1,5 +1,11 @@
 import { defineStore } from 'pinia'
-import type { Movie, MovieDetails, Person } from '@/types/types'
+import type {
+  Movie,
+  MovieCast,
+  MovieCrew,
+  MovieDetails,
+  Person,
+} from '@/types/types'
 import getApiData from '@/api/getApiData'
 import { shuffle } from '@/utils/utils'
 
@@ -18,6 +24,8 @@ interface State {
   topRatedMovies: Movie[]
   popularPeople: Person[]
   movieDetails: MovieDetails | undefined
+  movieCast: MovieCast[]
+  movieCrew: MovieCrew[]
   loading: boolean
 }
 
@@ -28,6 +36,8 @@ export const useMovieStore = defineStore('movie', {
       topRatedMovies: [],
       popularPeople: [],
       movieDetails: undefined,
+      movieCast: [],
+      movieCrew: [],
       loading: false,
     } as State),
   getters: {
@@ -92,6 +102,22 @@ export const useMovieStore = defineStore('movie', {
       } catch (error) {
         console.log('Error: ', error)
       } finally {
+        this.loading = false
+      }
+    },
+
+    async getMovieCredits(query: string) {
+      this.loading = true
+
+      try {
+        const data = await getApiData(query, options)
+        this.movieCast = data.cast
+        this.movieCrew = data.crew
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        console.log('CAST: ', this.movieCast)
+        console.log('CREW: ', this.movieCrew)
         this.loading = false
       }
     },
