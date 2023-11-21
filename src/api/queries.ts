@@ -8,3 +8,6 @@ export const movieDetailsQuery = (id: string) => `movie/${id}?language=pt-BR`
 
 export const movieCreditsQuery = (id: string) =>
   `movie/${id}/credits?language=pt-BR`
+
+export const recommendedMoviesQuery = (id: string) =>
+  `movie/${id}/recommendations?language=pt-BR&page=1`

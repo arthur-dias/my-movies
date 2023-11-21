@@ -28,7 +28,7 @@ import type { MovieCast, MovieDetails } from '@/types/types'
 import Person from './Person.vue'
 
 defineProps<{
-  cast: MovieCast[]
+  cast: MovieCast[] | undefined
   movieDetails: MovieDetails | undefined
 }>()
 </script>
@@ -36,7 +36,7 @@ defineProps<{
 <style scoped>
 .cast {
   max-width: 65%;
-  margin: 2rem auto 0;
+  margin: 2rem auto 4rem;
 }
 .cast > h1 {
   color: #fffffe;

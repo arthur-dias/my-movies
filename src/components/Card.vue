@@ -1,7 +1,8 @@
 <template>
   <RouterLink :to="`/filmes/${id}`">
     <div class="card">
-      <img :src="`${url}${imageUrl}`" :alt="name" />
+      <img v-if="imageUrl" :src="`${url}${imageUrl}`" :alt="name" />
+      <img v-else src="../assets/images/fallback_poster.png" :alt="name" />
     </div>
   </RouterLink>
 </template>
@@ -10,7 +11,7 @@
 import { RouterLink } from 'vue-router'
 
 defineProps<{
-  imageUrl: string
+  imageUrl: string | undefined
   name: string
   id: number
 }>()

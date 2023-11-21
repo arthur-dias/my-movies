@@ -22,6 +22,7 @@ const options = {
 interface State {
   trendingMovies: Movie[]
   topRatedMovies: Movie[]
+  recommendedMovies: Movie[]
   popularPeople: Person[]
   movieDetails: MovieDetails | undefined
   movieCast: MovieCast[]
@@ -35,6 +36,7 @@ export const useMovieStore = defineStore('movie', {
       trendingMovies: [],
       topRatedMovies: [],
       popularPeople: [],
+      recommendedMovies: [],
       movieDetails: undefined,
       movieCast: [],
       movieCrew: [],
@@ -79,6 +81,19 @@ export const useMovieStore = defineStore('movie', {
       try {
         const data = await getApiData(query, options)
         this.topRatedMovies = data.results
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        this.loading = false
+      }
+    },
+
+    async getRecommendedMoviesList(query: string) {
+      this.loading = true
+
+      try {
+        const data = await getApiData(query, options)
+        this.recommendedMovies = data.results
       } catch (error) {
         console.log('Error: ', error)
       } finally {
