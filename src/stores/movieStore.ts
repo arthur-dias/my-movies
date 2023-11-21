@@ -122,8 +122,6 @@ export const useMovieStore = defineStore('movie', {
       } catch (error) {
         console.log('Error: ', error)
       } finally {
-        console.log('CAST: ', this.movieCast)
-        console.log('CREW: ', this.movieCrew)
         this.loading = false
       }
     },
