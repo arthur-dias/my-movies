@@ -52,6 +52,12 @@ export const useMovieStore = defineStore('movie', {
     filteredPopularPeople(): Person[] {
       return shuffle(this.popularPeople)
     },
+
+    filteredMovieDirector(): MovieCrew[] {
+      const crew = this.movieCrew
+      const director = crew.filter((director) => director.job === 'Director')
+      return director
+    },
   },
   actions: {
     async getTrendingMoviesList(query: string) {

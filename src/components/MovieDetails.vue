@@ -8,6 +8,7 @@
           {{ movieDetails?.release_date.slice(0, 4) }}
         </p>
         <p>{{ movieDetails?.runtime }} min</p>
+        <p>Diretor: {{ movieDirector[0].name }}</p>
       </div>
       <div class="genres">
         <Tag
@@ -38,11 +39,12 @@
 </template>
 
 <script setup lang="ts">
-import type { MovieDetails as MovieDetailsType } from '@/types/types'
+import type { MovieCrew, MovieDetails as MovieDetailsType } from '@/types/types'
 import Tag from './Tag.vue'
 
 defineProps<{
   movieDetails: MovieDetailsType | undefined
+  movieDirector: MovieCrew[]
 }>()
 
 const url = 'https://image.tmdb.org/t/p/w200/'

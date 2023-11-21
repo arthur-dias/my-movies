@@ -1,6 +1,9 @@
 <template>
   <div class="movie">
-    <MovieDetails :movieDetails="movieStore.movieDetails" />
+    <MovieDetails
+      :movieDetails="movieStore.movieDetails"
+      :movie-director="movieStore.filteredMovieDirector"
+    />
     <MovieCredits
       :cast="movieStore.movieCast"
       :movieDetails="movieStore.movieDetails"
