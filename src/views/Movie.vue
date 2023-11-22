@@ -1,11 +1,15 @@
 <template>
   <RouterView>
     <div class="movie">
+      <MovieDetailsSkeleton v-if="movieStore.loadingMovieDetails" />
       <MovieDetails
+        v-else
         :movieDetails="movieStore.movieDetails"
         :movie-director="movieStore.filteredMovieDirector"
       />
+
       <MovieCredits
+        v-show="!movieStore.loadingMovieCredits"
         :cast="movieStore.movieCast"
         :movieDetails="movieStore.movieDetails"
       />
@@ -30,6 +34,7 @@ import { useMovieStore } from '@/stores/movieStore'
 import MovieDetails from '@/components/MovieDetails.vue'
 import MovieCredits from '@/components/MovieCredits.vue'
 import Cards from '@/components/Cards.vue'
+import MovieDetailsSkeleton from '@/components/MovieDetailsSkeleton.vue'
 
 const movieStore = useMovieStore()
 const route = useRoute()

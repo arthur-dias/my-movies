@@ -130,4 +130,22 @@
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   animation: bgAnimate 1.3s linear infinite;
 }
+
+@media (max-width: 680px) {
+  .movieSkeleton {
+    max-width: 85%;
+    height: auto;
+  }
+
+  .description {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sinopsis {
+    height: 250px;
+    width: 85%;
+  }
+}
 </style>

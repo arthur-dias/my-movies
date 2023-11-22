@@ -20,7 +20,6 @@
     </div>
     <div class="movieDescription">
       <img
-        v-if="movieDetails?.poster_path"
         :src="`${url}${movieDetails?.poster_path}`"
         :alt="movieDetails?.title"
       />
@@ -30,9 +29,10 @@
             {{ movieDetails?.tagline }}
           </em>
         </h2>
-        <p>
+        <p v-if="movieDetails?.overview">
           {{ movieDetails?.overview }}
         </p>
+        <p v-else>Esse filme ainda não possui uma sinopse cadastrada.</p>
       </div>
     </div>
   </div>
@@ -114,6 +114,11 @@ const url = 'https://image.tmdb.org/t/p/w200/'
   align-items: start;
   justify-content: start;
   gap: 1.5rem;
+}
+
+.movieDescription > img {
+  min-height: 300px;
+  min-width: 200px;
 }
 
 .descriptionText {
