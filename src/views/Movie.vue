@@ -10,6 +10,7 @@
         :movieDetails="movieStore.movieDetails"
       />
       <Cards
+        v-show="movieStore.recommendedMovies.length !== 0"
         :movies="movieStore.recommendedMovies"
         title="Você pode também gostar desses"
         :max-cards="5"
