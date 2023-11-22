@@ -1,5 +1,5 @@
 <template>
-  <div class="movieSkeleton">
+  <div class="movieDetailsSkeleton">
     <div class="titleInfos">
       <div class="title"></div>
       <div class="infos"></div>
@@ -29,7 +29,7 @@
     background-position: -150% 0;
   }
 }
-.movieSkeleton {
+.movieDetailsSkeleton {
   height: 470px;
   max-width: 65%;
   margin: 0 auto;
@@ -132,7 +132,7 @@
 }
 
 @media (max-width: 680px) {
-  .movieSkeleton {
+  .movieDetailsSkeleton {
     max-width: 85%;
     height: auto;
   }

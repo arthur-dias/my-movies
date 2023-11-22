@@ -7,9 +7,9 @@
         :movieDetails="movieStore.movieDetails"
         :movie-director="movieStore.filteredMovieDirector"
       />
-
+      <MovieCreditsSkeleton v-if="movieStore.loadingMovieCredits" />
       <MovieCredits
-        v-show="!movieStore.loadingMovieCredits"
+        v-else
         :cast="movieStore.movieCast"
         :movieDetails="movieStore.movieDetails"
       />
@@ -34,7 +34,8 @@ import { useMovieStore } from '@/stores/movieStore'
 import MovieDetails from '@/components/MovieDetails.vue'
 import MovieCredits from '@/components/MovieCredits.vue'
 import Cards from '@/components/Cards.vue'
-import MovieDetailsSkeleton from '@/components/MovieDetailsSkeleton.vue'
+import MovieDetailsSkeleton from '@/components/Skeleton/MovieDetailsSkeleton.vue'
+import MovieCreditsSkeleton from '@/components/Skeleton/MovieCreditsSkeleton.vue'
 
 const movieStore = useMovieStore()
 const route = useRoute()
