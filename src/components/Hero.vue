@@ -1,7 +1,7 @@
 <template>
   <div class="hero">
     <div class="imageWrapper">
-      <img src="@/assets/images/hero.jpg" alt="Banner" />
+      <img :src="`${url}${imageUrl}`" alt="Banner" />
     </div>
     <div class="description">
       <p>Avalie os filmes que você viu.</p>

@@ -1,5 +1,9 @@
 <template>
-  <Hero :image-url="movieStore.trendingMovies[randomBackdrop]?.backdrop_path" />
+  <HeroSkeleton v-if="movieStore.loadingTrendingMovies" />
+  <Hero
+    v-else
+    :image-url="movieStore.trendingMovies[randomBackdrop]?.backdrop_path"
+  />
   <Cards
     :movies="movieStore.filteredTrendingMovies"
     title="Filmes populares essa semana"
@@ -29,6 +33,7 @@ import Hero from '@/components/Hero.vue'
 import Cards from '@/components/Cards.vue'
 import Services from '@/components/Services.vue'
 import Persons from '@/components/Persons.vue'
+import HeroSkeleton from '@/components/Skeleton/HeroSkeleton.vue'
 
 const movieStore = useMovieStore()
 

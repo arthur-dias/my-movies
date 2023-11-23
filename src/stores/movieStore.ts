@@ -28,6 +28,7 @@ interface State {
   movieCast: MovieCast[]
   movieCrew: MovieCrew[]
   loading: boolean
+  loadingTrendingMovies: boolean
   loadingMovieDetails: boolean
   loadingMovieCredits: boolean
 }
@@ -43,6 +44,7 @@ export const useMovieStore = defineStore('movie', {
       movieCast: [],
       movieCrew: [],
       loading: false,
+      loadingTrendingMovies: false,
       loadingMovieDetails: false,
       loadingMovieCredits: false,
     } as State),
@@ -67,7 +69,7 @@ export const useMovieStore = defineStore('movie', {
   },
   actions: {
     async getTrendingMoviesList(query: string) {
-      this.loading = true
+      this.loadingTrendingMovies = true
 
       try {
         const data = await getApiData(query, options)
@@ -75,7 +77,7 @@ export const useMovieStore = defineStore('movie', {
       } catch (error) {
         console.log('Error: ', error)
       } finally {
-        this.loading = false
+        this.loadingTrendingMovies = false
       }
     },
 
