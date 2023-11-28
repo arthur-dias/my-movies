@@ -2,22 +2,25 @@
   <div class="mobileNav">
     <div class="buttons">
       <button>Login</button>
-      <button @click="show = !show" :class="{ active: show }">Menu</button>
+      <button @click="showNav = !showNav" :class="{ active: showNav }">
+        Menu
+      </button>
     </div>
-    <nav :class="{ close: !show, open: show }">
-      <RouterLink active-class="active" to="/" @click="show = false"
+    <!-- DROPDOWN NAV -->
+    <nav :class="{ close: !showNav, open: showNav }" ref="nav">
+      <RouterLink active-class="active" to="/" @click="showNav = false"
         >Home</RouterLink
       >
-      <RouterLink active-class="active" to="/filmes" @click="show = false"
+      <RouterLink active-class="active" to="/filmes" @click="showNav = false"
         >Filmes</RouterLink
       >
-      <RouterLink active-class="active" to="/reviews" @click="show = false"
+      <RouterLink active-class="active" to="/reviews" @click="showNav = false"
         >Reviews</RouterLink
       >
-      <RouterLink active-class="active" to="/listas" @click="show = false"
+      <RouterLink active-class="active" to="/listas" @click="showNav = false"
         >Listas</RouterLink
       >
-      <RouterLink active-class="active" to="/sobre" @click="show = false"
+      <RouterLink active-class="active" to="/sobre" @click="showNav = false"
         >Sobre</RouterLink
       >
     </nav>
@@ -25,10 +28,16 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
-const show = ref(false)
+const showNav = ref(false)
+const nav = ref(null)
+
+onClickOutside(nav, () => {
+  showNav.value = false
+})
 </script>
 
 <style scoped>

@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { onClickOutside, watchDebounced } from '@vueuse/core'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
