@@ -1,5 +1,5 @@
 <template>
-  <div class="searchBar">
+  <div class="searchBar" ref="searchBar">
     <div class="inputWrapper">
       <input
         v-model="searchTerm"
@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import debounce from 'lodash.debounce'
+import { onClickOutside, watchDebounced } from '@vueuse/core'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
 
@@ -56,6 +56,7 @@ const movieStore = useMovieStore()
 
 const searchTerm = ref('')
 const showSearchPreview = ref(false)
+const searchBar = ref(null)
 
 const url = 'https://image.tmdb.org/t/p/w92/'
 
@@ -70,13 +71,17 @@ function clearInput() {
   return
 }
 
-watch(
+watchDebounced(
   searchTerm,
-
-  debounce(() => {
+  () => {
     movieStore.getSearchedMoviesList(searchMovieQuery(searchTerm.value))
-  }, 500)
+  },
+  { debounce: 500, maxWait: 1000 }
 )
+
+onClickOutside(searchBar, () => {
+  clearInput()
+})
 </script>
 
 <style scoped>
