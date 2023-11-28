@@ -5,6 +5,7 @@ import type {
   MovieCrew,
   MovieDetails,
   Person,
+  SearchMovieResults,
 } from '@/types/types'
 import getApiData from '@/api/getApiData'
 import { shuffle } from '@/utils/utils'
@@ -27,10 +28,12 @@ interface State {
   movieDetails: MovieDetails | undefined
   movieCast: MovieCast[]
   movieCrew: MovieCrew[]
+  searchedMovies: SearchMovieResults[]
   loading: boolean
   loadingTrendingMovies: boolean
   loadingMovieDetails: boolean
   loadingMovieCredits: boolean
+  loadingSearchedMovies: boolean
 }
 
 export const useMovieStore = defineStore('movie', {
@@ -43,10 +46,12 @@ export const useMovieStore = defineStore('movie', {
       movieDetails: undefined,
       movieCast: [],
       movieCrew: [],
+      searchedMovies: [],
       loading: false,
       loadingTrendingMovies: false,
       loadingMovieDetails: false,
       loadingMovieCredits: false,
+      loadingSearchedMovies: false,
     } as State),
   getters: {
     filteredTrendingMovies(): Movie[] {
@@ -144,6 +149,21 @@ export const useMovieStore = defineStore('movie', {
         console.log('Error: ', error)
       } finally {
         this.loadingMovieCredits = false
+      }
+    },
+
+    async getSearchedMoviesList(query: string) {
+      this.loadingSearchedMovies = true
+
+      try {
+        const data = await getApiData(query, options)
+        this.searchedMovies = data.results
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        console.log(this.searchedMovies)
+
+        this.loadingSearchedMovies = false
       }
     },
   },

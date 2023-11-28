@@ -35,13 +35,13 @@ import Services from '@/components/Services.vue'
 import Persons from '@/components/Persons.vue'
 import HeroSkeleton from '@/components/Skeleton/HeroSkeleton.vue'
 
+const randomBackdrop = getRandomNumber(20)
+
 const movieStore = useMovieStore()
 
 movieStore.getTrendingMoviesList(trendingMoviesQuery)
 movieStore.getTopRatedMoviesList(topRatedQuery)
 movieStore.getTrendingPersonsList(popularPeopleQuery)
-
-const randomBackdrop = getRandomNumber(20)
 </script>
 
 <style scoped></style>

@@ -11,3 +11,6 @@ export const movieCreditsQuery = (id: string) =>
 
 export const recommendedMoviesQuery = (id: string) =>
   `movie/${id}/recommendations?language=pt-BR&page=1`
+
+export const searchMovieQuery = (query: string) =>
+  `search/movie?query=${query}&include_adult=false&language=pt-BR&page=1`

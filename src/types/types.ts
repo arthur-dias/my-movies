@@ -21,6 +21,8 @@ export interface Movie {
   vote_count: number
 }
 
+export type SearchMovieResults = Omit<Movie, 'media_type'>
+
 export interface Service {
   id: number
   text: string

@@ -25,9 +25,7 @@
       />
       <div class="descriptionText">
         <h2 v-if="movieDetails?.tagline">
-          <em>
-            {{ movieDetails?.tagline }}
-          </em>
+          <em> "{{ movieDetails?.tagline }}" </em>
         </h2>
         <p v-if="movieDetails?.overview">
           {{ movieDetails?.overview }}

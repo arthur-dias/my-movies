@@ -7,6 +7,7 @@
       <RouterLink active-class="active" to="/listas">Listas</RouterLink>
       <RouterLink active-class="active" to="/sobre">Sobre</RouterLink>
     </nav>
+    <SearchBar />
   </div>
   <MobileNav />
 </template>
@@ -14,6 +15,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import MobileNav from './MobileNav.vue'
+import SearchBar from './SearchBar.vue'
 </script>
 
 <style scoped>
