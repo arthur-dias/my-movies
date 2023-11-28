@@ -144,6 +144,12 @@ const url = 'https://image.tmdb.org/t/p/w200/'
     max-width: 85%;
   }
 
+  .movieFatcs > p {
+    display: flex;
+    flex-direction: row;
+    min-width: 60px;
+  }
+
   .titleDetails > h1 {
     font-size: 1.8rem;
   }

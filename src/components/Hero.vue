@@ -85,7 +85,7 @@ button:hover {
     min-height: auto;
   }
   .imageWrapper::after {
-    bottom: 380px;
+    display: none;
   }
 
   img {

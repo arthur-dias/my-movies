@@ -6,6 +6,7 @@
         Menu
       </button>
     </div>
+    <MobileSearch />
     <!-- DROPDOWN NAV -->
     <nav :class="{ close: !showNav, open: showNav }" ref="nav">
       <RouterLink active-class="active" to="/" @click="showNav = false"
@@ -28,9 +29,10 @@
 </template>
 
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { onClickOutside } from '@vueuse/core'
+import MobileSearch from '@/components/MobileSearch.vue'
 
 const showNav = ref(false)
 const nav = ref(null)
