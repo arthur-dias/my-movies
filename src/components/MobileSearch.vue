@@ -14,7 +14,7 @@
       <RouterLink
         v-for="result in movieStore.searchedMovies.slice(0, 5)"
         :key="result.id"
-        :to="`/filmes/${result.id}`"
+        :to="`/filme/${result.id}`"
         @click="clearInput"
         class="result"
       >
@@ -48,7 +48,9 @@ import { ref } from 'vue'
 import { onClickOutside, watchDebounced } from '@vueuse/core'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const movieStore = useMovieStore()
 
 const searchTerm = ref('')
@@ -58,8 +60,8 @@ const mobileSearchBar = ref(null)
 const url = 'https://image.tmdb.org/t/p/w92/'
 
 function handleSearch() {
-  movieStore.getSearchedMoviesList(searchMovieQuery(searchTerm.value))
-  showSearchPreview.value = true
+  router.push({ path: `/buscar/${searchTerm.value}` })
+  clearInput()
 }
 
 function clearInput() {
@@ -112,7 +114,6 @@ onClickOutside(mobileSearchBar, () => {
   background: #1f1c2b;
   margin-top: 1rem;
   width: 100%;
-  border-radius: 5px;
 }
 
 .result {

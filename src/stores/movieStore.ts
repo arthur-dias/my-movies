@@ -29,11 +29,13 @@ interface State {
   movieCast: MovieCast[]
   movieCrew: MovieCrew[]
   searchedMovies: SearchMovieResults[]
+  fullSearchedMovies: SearchMovieResults[]
   loading: boolean
   loadingTrendingMovies: boolean
   loadingMovieDetails: boolean
   loadingMovieCredits: boolean
   loadingSearchedMovies: boolean
+  loadingFullSearchedMovies: boolean
 }
 
 export const useMovieStore = defineStore('movie', {
@@ -47,11 +49,13 @@ export const useMovieStore = defineStore('movie', {
       movieCast: [],
       movieCrew: [],
       searchedMovies: [],
+      fullSearchedMovies: [],
       loading: false,
       loadingTrendingMovies: false,
       loadingMovieDetails: false,
       loadingMovieCredits: false,
       loadingSearchedMovies: false,
+      loadingFullSearchedMovies: false,
     } as State),
   getters: {
     filteredTrendingMovies(): Movie[] {
@@ -161,9 +165,20 @@ export const useMovieStore = defineStore('movie', {
       } catch (error) {
         console.log('Error: ', error)
       } finally {
-        console.log(this.searchedMovies)
-
         this.loadingSearchedMovies = false
+      }
+    },
+
+    async getFullSearchedMoviesList(query: string) {
+      this.loadingFullSearchedMovies = true
+
+      try {
+        const data = await getApiData(query, options)
+        this.fullSearchedMovies = data.results
+      } catch (error) {
+        console.log('Error: ', error)
+      } finally {
+        this.loadingFullSearchedMovies = false
       }
     },
   },

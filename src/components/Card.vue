@@ -1,5 +1,5 @@
 <template>
-  <RouterLink :to="`/filmes/${id}`">
+  <RouterLink :to="`/filme/${id}`">
     <div class="card">
       <img v-if="imageUrl" :src="`${url}${imageUrl}`" :alt="name" />
       <img v-else src="../assets/images/fallback_poster.png" :alt="name" />

@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import('@/views/Movies.vue'),
     },
     {
-      path: '/filmes/:id',
+      path: '/filme/:id',
       name: 'filme',
       component: () => import('@/views/Movie.vue'),
     },
@@ -33,6 +33,11 @@ const router = createRouter({
       path: '/sobre',
       name: 'sobre',
       component: () => import('@/views/About.vue'),
+    },
+    {
+      path: '/buscar/:query',
+      name: 'buscar',
+      component: () => import('@/views/SearchResults.vue'),
     },
   ],
   scrollBehavior(to, from, savedPosition) {
