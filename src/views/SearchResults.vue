@@ -1,10 +1,7 @@
 <template>
-  <h1 style="color: aliceblue">Search Results</h1>
-
-  <div v-for="item in movieStore.fullSearchedMovies" :key="item.id">
-    <p style="color: aliceblue">
-      {{ item.title }}
-    </p>
+  <div class="searchResults">
+    <h1 class="title">Resultados para: "{{ query }}"</h1>
+    <SearchResults :movies="movieStore.fullSearchedMovies" />
   </div>
 </template>
 
@@ -12,10 +9,10 @@
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
+import SearchResults from '@/components/SearchResults.vue'
 
 const route = useRoute()
 const movieStore = useMovieStore()
-
 const query = route.params.query
 
 movieStore.getFullSearchedMoviesList(searchMovieQuery(query as string))
@@ -27,4 +24,16 @@ onBeforeRouteUpdate((to, from) => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.searchResults {
+  padding-top: 3rem;
+}
+
+.title {
+  text-align: center;
+  color: #fffffe;
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+</style>
