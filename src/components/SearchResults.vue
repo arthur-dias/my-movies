@@ -144,5 +144,13 @@ img:hover {
   .originalTitle {
     font-size: 0.9rem;
   }
+
+  .overview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 }
 </style>
