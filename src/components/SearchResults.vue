@@ -1,5 +1,7 @@
 <template>
   <div class="resultList">
+    <h1 class="title">Resultados para: "{{ query }}"</h1>
+
     <div class="result" v-for="result in movies" :key="result.id">
       <RouterLink :to="`/filme/${result.id}`">
         <img
@@ -15,7 +17,7 @@
       </RouterLink>
       <div class="info">
         <RouterLink :to="`/filme/${result.id}`">
-          <p class="title">{{ result.title }}</p>
+          <p class="movieTitle">{{ result.title }}</p>
         </RouterLink>
         <div class="additionalInfo">
           <p class="year">Ano: {{ result.release_date.slice(0, 4) }}</p>
@@ -32,12 +34,16 @@
 <script setup lang="ts">
 import { useMovieStore } from '@/stores/movieStore'
 import type { SearchMovieResults } from '@/types/types'
+import { useRoute } from 'vue-router'
 
 defineProps<{
   movies: SearchMovieResults[]
 }>()
 
 const url = 'https://image.tmdb.org/t/p/w92/'
+
+const route = useRoute()
+const query = route.params.query
 
 const movieStore = useMovieStore()
 movieStore.searchedMovies
@@ -54,8 +60,18 @@ movieStore.searchedMovies
   gap: 1.5rem;
 }
 
+.title {
+  align-self: center;
+  color: #fffffe;
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
 .result {
   min-width: 100%;
+  min-height: 170px;
+
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -68,6 +84,7 @@ movieStore.searchedMovies
 
 img {
   max-width: 92px;
+  min-width: 92px;
 }
 
 img:hover {
@@ -91,11 +108,11 @@ img:hover {
   gap: 1rem;
 }
 
-.title {
+.movieTitle {
   color: #fffffe;
   font-weight: 500;
 }
-.title:hover {
+.movieTitle:hover {
   color: #ff8906;
 }
 
@@ -112,6 +129,11 @@ img:hover {
 @media (max-width: 680px) {
   .resultList {
     max-width: 85%;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
 
   .additionalInfo {

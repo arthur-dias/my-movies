@@ -1,14 +1,12 @@
 <template>
-  <div class="movieCreditsSkeleton">
+  <div class="searchResultsSkeleton">
     <div class="title"></div>
-    <div class="cast">
-      <div class="actor"></div>
-      <div class="actor"></div>
-      <div class="actor"></div>
-      <div class="actor"></div>
-      <div class="actor"></div>
-      <div class="actor"></div>
-      <div class="actor"></div>
+    <div class="resultList">
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
     </div>
   </div>
 </template>
@@ -24,15 +22,18 @@
   }
 }
 
-.movieCreditsSkeleton {
-  height: 400px;
+.searchResultsSkeleton {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
   max-width: 65%;
-  margin: 1rem auto 0;
+  margin: 0 auto;
 }
 
 .title {
-  height: 45px;
-  width: 25%;
+  width: 50%;
+  height: 40px;
+  margin: 0 auto 5rem;
   background-image: linear-gradient(
     to right,
     #1f1c2b 0%,
@@ -45,20 +46,18 @@
   animation: bgAnimate 1.3s linear infinite;
 }
 
-.cast {
-  margin-top: 2rem;
-  min-height: 230px;
+.resultList {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
   justify-content: start;
-  flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.actor {
-  min-width: 130px;
-  min-height: 219px;
+.result {
+  min-width: 100%;
+  height: 170px;
+  border-radius: 5px;
   background-image: linear-gradient(
     to right,
     #1f1c2b 0%,
@@ -72,17 +71,14 @@
 }
 
 @media (max-width: 680px) {
-  .movieCreditsSkeleton {
+  .searchResultsSkeleton {
     max-width: 85%;
-    height: auto;
+    padding-top: 0;
   }
 
   .title {
-    width: 300px;
-  }
-
-  .cast {
-    justify-content: center;
+    width: 80%;
+    margin-bottom: 3rem;
   }
 }
 </style>

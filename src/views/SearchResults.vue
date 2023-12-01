@@ -1,7 +1,7 @@
 <template>
   <div class="searchResults">
-    <h1 class="title">Resultados para: "{{ query }}"</h1>
-    <SearchResults :movies="movieStore.fullSearchedMovies" />
+    <SearchResultsSkeleton v-if="movieStore.loadingFullSearchedMovies" />
+    <SearchResults v-else :movies="movieStore.fullSearchedMovies" />
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
 import SearchResults from '@/components/SearchResults.vue'
+import SearchResultsSkeleton from '@/components/Skeleton/SearchResultsSkeleton.vue'
 
 const route = useRoute()
 const movieStore = useMovieStore()
@@ -27,13 +28,5 @@ onBeforeRouteUpdate((to, from) => {
 <style scoped>
 .searchResults {
   padding-top: 3rem;
-}
-
-.title {
-  text-align: center;
-  color: #fffffe;
-  font-weight: 500;
-  font-size: 2.5rem;
-  margin-bottom: 5rem;
 }
 </style>
