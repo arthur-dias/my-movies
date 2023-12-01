@@ -31,7 +31,9 @@
 }
 
 .title {
-  height: 45px;
+  position: relative;
+  right: 20px;
+  height: 35px;
   width: 25%;
   background-image: linear-gradient(
     to right,
@@ -46,7 +48,7 @@
 }
 
 .cast {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   min-height: 230px;
   display: flex;
   flex-direction: row;
