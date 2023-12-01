@@ -12,9 +12,13 @@
         <img src="../assets/icons/search-icon.svg" alt="Lupa" />
       </div>
     </div>
-
-    <div class="searchPreview" v-show="!showSearchPreview">
+    <!-- SEARCH PREVIEW -->
+    <div class="searchPreview" v-show="searchTerm">
       <RouterLink
+        v-if="
+          movieStore.loadingSearchedMovies === false &&
+          movieStore.searchedMovies.length !== 0
+        "
         v-for="result in movieStore.searchedMovies.slice(0, 5)"
         :key="result.id"
         :to="`/filme/${result.id}`"
@@ -39,7 +43,12 @@
           <p class="year">Ano: {{ result.release_date.slice(0, 4) }}</p>
         </div>
       </RouterLink>
-      <RouterLink to="#" class="seeMore" v-show="searchTerm">
+      <RouterLink
+        to="#"
+        @click="handleSearch"
+        class="seeMore"
+        v-show="searchTerm"
+      >
         <p>Ver todos os resultados para "{{ searchTerm }}"</p>
       </RouterLink>
     </div>
@@ -57,7 +66,6 @@ const router = useRouter()
 const movieStore = useMovieStore()
 
 const searchTerm = ref('')
-const showSearchPreview = ref(false)
 const searchBar = ref(null)
 
 const url = 'https://image.tmdb.org/t/p/w92/'
@@ -68,7 +76,6 @@ function handleSearch() {
 }
 
 function clearInput() {
-  showSearchPreview.value = false
   searchTerm.value = ''
   return
 }
@@ -105,7 +112,7 @@ onClickOutside(searchBar, () => {
 
 .inputWrapper > input:focus {
   outline: none;
-  box-shadow: 0px 0px 10px 3px rgba(255, 137, 6, 0.75);
+  box-shadow: 0px 0px 1px 2px rgba(255, 137, 6, 0.75);
 }
 
 .iconWrapper {
