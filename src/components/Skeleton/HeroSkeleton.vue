@@ -89,6 +89,9 @@
 }
 
 @media (max-width: 680px) {
+  .heroSkeleton {
+    margin-bottom: 0;
+  }
   .banner {
     height: 240px;
     width: 100%;
