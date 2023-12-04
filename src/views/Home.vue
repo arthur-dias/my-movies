@@ -7,11 +7,13 @@
   <Cards
     :movies="movieStore.filteredTrendingMovies"
     title="Filmes populares essa semana"
+    :max-cards="10"
   />
   <Services :services="services" />
   <Cards
     :movies="movieStore.filteredTopRatedMovies"
     title="Filmes mais bem avaliados"
+    :max-cards="5"
   />
   <Persons
     :persons="movieStore.filteredPopularPeople"

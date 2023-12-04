@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
     <div class="cardsWrapper">
       <Card
-        v-for="movie in movies?.slice(0, maxCards ? maxCards : 4)"
+        v-for="movie in movies?.slice(0, maxCards ? maxCards : 10)"
         :key="movie.id"
         :image-url="movie.poster_path"
         :name="movie.title"
@@ -37,12 +37,14 @@ h1 {
 }
 
 .cardsWrapper {
+  max-width: 65%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: start;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
   padding-top: 5rem;
 }
 
@@ -56,6 +58,7 @@ h1 {
   }
 
   .cardsWrapper {
+    max-width: 100%;
     padding-top: 3rem;
   }
 }
