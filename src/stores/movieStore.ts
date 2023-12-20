@@ -4,7 +4,7 @@ import type {
   MovieCast,
   MovieCrew,
   MovieDetails,
-  Person,
+  PopularPerson,
   SearchMovieResults,
 } from '@/types/types'
 import getApiData from '@/api/getApiData'
@@ -24,7 +24,7 @@ interface State {
   trendingMovies: Movie[]
   topRatedMovies: Movie[]
   recommendedMovies: Movie[]
-  popularPeople: Person[]
+  popularPeople: PopularPerson[]
   movieDetails: MovieDetails | undefined
   movieCast: MovieCast[]
   movieCrew: MovieCrew[]
@@ -66,7 +66,7 @@ export const useMovieStore = defineStore('movie', {
       return shuffle(this.topRatedMovies)
     },
 
-    filteredPopularPeople(): Person[] {
+    filteredPopularPeople(): PopularPerson[] {
       return shuffle(this.popularPeople)
     },
 
