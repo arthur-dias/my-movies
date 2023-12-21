@@ -60,6 +60,7 @@ h1 {
   .personsWrapper {
     padding-top: 3rem;
     max-width: 100%;
+    gap: 2rem;
   }
 }
 </style>

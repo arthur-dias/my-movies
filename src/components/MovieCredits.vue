@@ -71,13 +71,16 @@ defineProps<{
 
 @media (max-width: 680px) {
   .cast {
-    max-width: 85%;
+    max-width: 100%;
   }
   .cast > h1 {
     font-size: 1.8rem;
+    max-width: 85%;
+    margin: 0 auto;
   }
 
   .personWrapper {
+    gap: 1rem;
     justify-content: center;
   }
 }

@@ -61,5 +61,13 @@ const url = 'https://image.tmdb.org/t/p/w185/'
   .person {
     max-width: 77px;
   }
+
+  .personInfo {
+    max-width: 100px;
+  }
+
+  .hasName {
+    min-width: 94px;
+  }
 }
 </style>

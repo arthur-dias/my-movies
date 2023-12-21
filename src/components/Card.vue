@@ -55,10 +55,12 @@ const url = 'https://image.tmdb.org/t/p/w342/'
 @media (max-width: 680px) {
   .card {
     max-width: 139px;
+    height: 250px;
   }
 
   .cardBack {
     width: 129px;
+    height: 244px;
   }
 }
 </style>

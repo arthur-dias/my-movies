@@ -156,6 +156,7 @@ const url = 'https://image.tmdb.org/t/p/w200/'
   .movieDescription {
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
   }
 }
 </style>
