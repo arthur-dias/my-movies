@@ -40,25 +40,7 @@ export interface Person {
   known_for_department: string
   profile_path: string
   known_for: Movie[]
-  also_known_as: string[]
-  biography: string
-  birthday: string
-  deathday: string
-  homepage: number
-  imdb_id: string
-  place_of_birth: string
 }
-
-export type PopularPerson = Omit<
-  Person,
-  | 'also_known_as'
-  | 'biography'
-  | 'birthday'
-  | 'deathday'
-  | 'homepage'
-  | 'imdb_id'
-  | 'place_of_birth'
->
 
 interface ProductionCompanies {
   id: number
