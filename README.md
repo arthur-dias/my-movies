@@ -7,12 +7,15 @@
 
 ## Key features
 
-- [ ] Criação de profile individual
-- [ ] Criação e compartilhamento de reviews
-- [ ] Criação de um diário com filmes assistidos
-- [ ] Adicionar likes em filmes, listas e reviews
+- [x] Barra de busca para filmes
+- [x] Páginas internas de filmes
+- [ ] Páginas internas de atores/atrizes 
+- [ ] Criação de conta pessoal
 - [ ] Avaliação de filmes com até 5 estrelas
+- [ ] Criação de um diário com filmes assistidos
+- [ ] Criação e compartilhamento de reviews
 - [ ] Criação de listas diversas e watchlists
+- [ ] Adicionar likes em filmes, listas e reviews
 
 ## Rodando o projeto
 
