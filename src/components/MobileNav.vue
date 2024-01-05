@@ -12,7 +12,7 @@
       <RouterLink active-class="active" to="/" @click="showNav = false"
         >Home</RouterLink
       >
-      <RouterLink active-class="active" to="/filmes" @click="showNav = false"
+      <!-- <RouterLink active-class="active" to="/filmes" @click="showNav = false"
         >Filmes</RouterLink
       >
       <RouterLink active-class="active" to="/reviews" @click="showNav = false"
@@ -23,7 +23,12 @@
       >
       <RouterLink active-class="active" to="/sobre" @click="showNav = false"
         >Sobre</RouterLink
-      >
+      > -->
+
+      <RouterLink to="#" @click="showNav = false">Filmes</RouterLink>
+      <RouterLink to="#" @click="showNav = false">Reviews</RouterLink>
+      <RouterLink to="#" @click="showNav = false">Listas</RouterLink>
+      <RouterLink to="#" @click="showNav = false">Sobre</RouterLink>
     </nav>
   </div>
 </template>

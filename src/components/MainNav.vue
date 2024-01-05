@@ -2,10 +2,14 @@
   <div class="mainNav">
     <nav>
       <RouterLink active-class="active" to="/">Home</RouterLink>
-      <RouterLink active-class="active" to="/filmes">Filmes</RouterLink>
+      <!-- <RouterLink active-class="active" to="/filmes">Filmes</RouterLink>
       <RouterLink active-class="active" to="/reviews">Reviews</RouterLink>
       <RouterLink active-class="active" to="/listas">Listas</RouterLink>
-      <RouterLink active-class="active" to="/sobre">Sobre</RouterLink>
+      <RouterLink active-class="active" to="/sobre">Sobre</RouterLink> -->
+      <RouterLink to="#">Filmes</RouterLink>
+      <RouterLink to="#">Reviews</RouterLink>
+      <RouterLink to="#">Listas</RouterLink>
+      <RouterLink to="#">Sobre</RouterLink>
     </nav>
     <SearchBar />
   </div>

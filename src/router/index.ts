@@ -12,14 +12,14 @@ const router = createRouter({
         title: 'Home',
       },
     },
-    {
-      path: '/filmes',
-      name: 'filmes',
-      component: () => import('@/views/Movies.vue'),
-      meta: {
-        title: 'Filmes',
-      },
-    },
+    // {
+    //   path: '/filmes',
+    //   name: 'filmes',
+    //   component: () => import('@/views/Movies.vue'),
+    //   meta: {
+    //     title: 'Filmes',
+    //   },
+    // },
     {
       path: '/filme/:id',
       name: 'filme',
@@ -28,30 +28,30 @@ const router = createRouter({
         title: 'Filme',
       },
     },
-    {
-      path: '/reviews',
-      name: 'reviews',
-      component: () => import('@/views/Reviews.vue'),
-      meta: {
-        title: 'Reviews',
-      },
-    },
-    {
-      path: '/listas',
-      name: 'lists',
-      component: () => import('@/views/Lists.vue'),
-      meta: {
-        title: 'Listas',
-      },
-    },
-    {
-      path: '/sobre',
-      name: 'sobre',
-      component: () => import('@/views/About.vue'),
-      meta: {
-        title: 'Sobre',
-      },
-    },
+    // {
+    //   path: '/reviews',
+    //   name: 'reviews',
+    //   component: () => import('@/views/Reviews.vue'),
+    //   meta: {
+    //     title: 'Reviews',
+    //   },
+    // },
+    // {
+    //   path: '/listas',
+    //   name: 'lists',
+    //   component: () => import('@/views/Lists.vue'),
+    //   meta: {
+    //     title: 'Listas',
+    //   },
+    // },
+    // {
+    //   path: '/sobre',
+    //   name: 'sobre',
+    //   component: () => import('@/views/About.vue'),
+    //   meta: {
+    //     title: 'Sobre',
+    //   },
+    // },
     {
       path: '/buscar/:query',
       name: 'buscar',
