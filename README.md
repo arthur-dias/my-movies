@@ -4,17 +4,19 @@
 
 ![img1](https://github.com/arthur-dias/my-movies/assets/29763731/878b7e44-cdac-452f-a76f-77f8777b4cc4)
 
-
 ## Key features
 
 - [x] Barra de busca para filmes
 - [x] Páginas internas de filmes
-- [ ] Páginas internas de atores/atrizes 
+- [ ] Página institucional
+- [ ] Páginas internas de atores/atrizes
 - [ ] Criação de conta pessoal
 - [ ] Avaliação de filmes com até 5 estrelas
 - [ ] Criação de um diário com filmes assistidos
 - [ ] Criação e compartilhamento de reviews
+- [ ] Página de reviews
 - [ ] Criação de listas diversas e watchlists
+- [ ] Página de listas
 - [ ] Adicionar likes em filmes, listas e reviews
 
 ## Rodando o projeto
@@ -24,7 +26,7 @@ $ git clone https://github.com/arthur-dias/my-movies
 
 $ cd my-movies
 
-$ npm install 
+$ npm install
 
 Criar um arquivo .env na raiz do projeto e adicionar sua Api key e token da seguinte maneira:
 
@@ -45,4 +47,5 @@ Acessar http://localhost:5173/
 - [Cloudinary](https://cloudinary.com/)
 
 ## License
+
 MIT
