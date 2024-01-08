@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import type { Movie } from '@/types/types'
-import Card from './Card.vue'
+import Card from '../Atoms/Card.vue'
 
 defineProps<{
   movies: Movie[] | undefined

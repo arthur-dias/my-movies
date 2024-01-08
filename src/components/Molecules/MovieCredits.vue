@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import type { MovieCast, MovieDetails } from '@/types/types'
-import Person from './Person.vue'
+import Person from '../Atoms/Person.vue'
 
 defineProps<{
   cast: MovieCast[] | undefined

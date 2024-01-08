@@ -37,7 +37,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { onClickOutside } from '@vueuse/core'
-import MobileSearch from '@/components/MobileSearch.vue'
+import MobileSearch from '../Molecules/MobileSearch.vue'
 
 const showNav = ref(false)
 const nav = ref(null)

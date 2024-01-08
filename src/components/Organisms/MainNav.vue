@@ -18,8 +18,8 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import SearchBar from '../Molecules/SearchBar.vue'
 import MobileNav from './MobileNav.vue'
-import SearchBar from './SearchBar.vue'
 </script>
 
 <style scoped>

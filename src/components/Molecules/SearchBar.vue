@@ -9,7 +9,7 @@
         placeholder="Pesquisar filmes"
       />
       <div class="iconWrapper">
-        <img src="../assets/icons/search-icon.svg" alt="Lupa" />
+        <img src="@/assets/icons/search-icon.svg" alt="Lupa" />
       </div>
     </div>
     <!-- SEARCH PREVIEW -->
@@ -32,7 +32,7 @@
         />
         <img
           v-else
-          src="../assets/images/fallback_poster.png"
+          src="@/assets/images/fallback_poster.png"
           :alt="result.title"
         />
 

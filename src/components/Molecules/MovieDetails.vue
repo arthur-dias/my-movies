@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import type { MovieCrew, MovieDetails as MovieDetailsType } from '@/types/types'
-import Tag from './Tag.vue'
+import Tag from '../Atoms/Tag.vue'
 
 defineProps<{
   movieDetails: MovieDetailsType | undefined

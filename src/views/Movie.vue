@@ -31,11 +31,11 @@ import {
   recommendedMoviesQuery,
 } from '@/api/queries'
 import { useMovieStore } from '@/stores/movieStore'
-import MovieDetails from '@/components/MovieDetails.vue'
-import MovieCredits from '@/components/MovieCredits.vue'
-import Cards from '@/components/Cards.vue'
-import MovieDetailsSkeleton from '@/components/Skeleton/MovieDetailsSkeleton.vue'
 import MovieCreditsSkeleton from '@/components/Skeleton/MovieCreditsSkeleton.vue'
+import MovieDetailsSkeleton from '@/components/Skeleton/MovieDetailsSkeleton.vue'
+import MovieDetails from '@/components/Molecules/MovieDetails.vue'
+import MovieCredits from '@/components/Molecules/MovieCredits.vue'
+import Cards from '@/components/Molecules/Cards.vue'
 
 const movieStore = useMovieStore()
 const route = useRoute()

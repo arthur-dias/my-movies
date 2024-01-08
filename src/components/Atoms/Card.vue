@@ -8,7 +8,7 @@
         :src="`${url}${imageUrl}`"
         :alt="name"
       />
-      <img v-else src="../assets/images/fallback_poster.png" :alt="name" />
+      <img v-else src="@/assets/images/fallback_poster.png" :alt="name" />
     </div>
   </RouterLink>
 </template>

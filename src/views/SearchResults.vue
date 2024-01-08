@@ -9,8 +9,8 @@
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { useMovieStore } from '@/stores/movieStore'
 import { searchMovieQuery } from '@/api/queries'
-import SearchResults from '@/components/SearchResults.vue'
 import SearchResultsSkeleton from '@/components/Skeleton/SearchResultsSkeleton.vue'
+import SearchResults from '@/components/Molecules/SearchResults.vue'
 
 const route = useRoute()
 const movieStore = useMovieStore()

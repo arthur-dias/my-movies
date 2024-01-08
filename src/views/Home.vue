@@ -31,11 +31,11 @@ import {
   topRatedQuery,
   popularPeopleQuery,
 } from '@/api/queries'
-import Hero from '@/components/Hero.vue'
-import Cards from '@/components/Cards.vue'
-import Services from '@/components/Services.vue'
-import Persons from '@/components/Persons.vue'
 import HeroSkeleton from '@/components/Skeleton/HeroSkeleton.vue'
+import Cards from '@/components/Molecules/Cards.vue'
+import Services from '@/components/Molecules/Services.vue'
+import Persons from '@/components/Molecules/Persons.vue'
+import Hero from '@/components/Organisms/Hero.vue'
 
 const randomBackdrop = getRandomNumber(20)
 

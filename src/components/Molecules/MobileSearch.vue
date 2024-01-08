@@ -29,7 +29,7 @@
         />
         <img
           v-else
-          src="../assets/images/fallback_poster.png"
+          src="@/assets/images/fallback_poster.png"
           :alt="result.title"
         />
 
